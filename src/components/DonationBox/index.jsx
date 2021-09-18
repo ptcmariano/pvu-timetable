@@ -11,15 +11,15 @@ const DonationBox = () => {
   const [error, setError] = useState(false);
   const { t } = useTranslation();
 
-  useEffect(() => {
-    fetch(`https://api.bscscan.com/api?module=account&action=balance&address=${config.donationAddress}&apikey=${config.bscScanApiKey}`)
-      .then((res) => res.json())
-      .then((json) => {
-        const bnb = parseInt(json.result.padStart(19, '0').slice(0, 5), 10) / 10000;
-        setDonated(bnb);
-      })
-      .catch((err) => setError(true));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`https://api.bscscan.com/api?module=account&action=balance&address=${config.donationAddress}&apikey=${config.bscScanApiKey}`)
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       const bnb = parseInt(json.result.padStart(19, '0').slice(0, 5), 10) / 10000;
+  //       setDonated(bnb);
+  //     })
+  //     .catch((err) => setError(true));
+  // }, []);
 
   const copyAddress = async () => {
     await navigator.clipboard.writeText(config.donationAddress);

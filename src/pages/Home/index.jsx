@@ -57,34 +57,9 @@ const Home = () => {
 
   return (
     <div className="container">
-      {/* Banner */}
-      <Pane className="box box__fixed box__center">
-        <a href="https://github.com/ptcmariano" target="_blank" rel="noreferrer" style={{ textAlign: 'center' }}>
-          <img src="/nft-games-land.png" alt="NFT Games Land" style={{ width: '20%' }} />
-        </a>
-        <Pane marginTop="8px" marginBottom="8px">
-          {t('created_with')} <HeartIcon color="danger" /> {t('by')} NFT Games Land
-        </Pane>
-        <Pane marginTop="8px" marginBottom="8px">
-          {t('edited_with')} <HeartIcon color="danger" /> {t('by')} Paulo Tiago
-        </Pane>
-      </Pane>
-
-      <Pane className="box box__fixed box__center">
-        <Pane marginTop="8px" marginBottom="8px">
-          <DonationBox />
-        </Pane>
-      </Pane>
-
-      {config.showAlert && (
-        <Pane className="box box__fixed box__alert" marginBottom="16px">
-          {t('alert_message')}
-        </Pane>
-      )}
-
       {/* Settings */}
       <Pane className="box box__fixed box__center">
-        <Pane style={{ marginBottom: '16px', textAlign: 'center' }}>
+        <Pane style={{ marginBottom: '8px', textAlign: 'center' }}>
           <Heading is="h3" size={800} color="#fff">
             {t('group_schedules')}
           </Heading>
@@ -92,11 +67,11 @@ const Home = () => {
         <Pane>
           <CountryPicker data={countries} selected={country} onSelect={setCountry} />
         </Pane>
-        <Pane marginTop="16px">
+        <Pane marginTop="8px">
           <FormatPicker data={formats} selected={format} onSelect={setFormat} />
         </Pane>
-        <Pane marginTop="16px">
-          <Pane textAlign="center" marginBottom="8px">
+        <Pane marginTop="8px">
+          <Pane textAlign="center">
             {i18n.language === 'es' ? `${t('time_in')} ` : ''}{country.name}{i18n.language === 'en' ? ` ${t('time_in')}` : ''}: {currentTime.setZone(country.timezone).toFormat(format.format)}
           </Pane>
           <Pane textAlign="center">
@@ -106,7 +81,7 @@ const Home = () => {
       </Pane>
 
       {/* Timetable */}
-      <Pane className="box box__fixed">
+      <Pane marginBottom="8px" className="box box__fixed">
         <Timetable
           groupCount={config.groupCount}
           groupsPerRow={config.groupsPerRow}
@@ -117,6 +92,34 @@ const Home = () => {
           format={format.format}
         />
       </Pane>
+
+      {/* TODO: calc hours */}
+
+      {/* Banner */}
+      <Pane className="box box__fixed box__center">
+        <a href="https://github.com/ptcmariano" target="_blank" rel="noreferrer" style={{ textAlign: 'center' }}>
+          <img src="/nft-games-land.png" alt="NFT Games Land" style={{ width: '20%' }} />
+        </a>
+        <Pane>
+          {t('created_with')} <HeartIcon color="danger" /> {t('by')} NFT Games Land
+        </Pane>
+        <Pane>
+          {t('edited_with')} <HeartIcon color="danger" /> {t('by')} Paulo Tiago
+        </Pane>
+      </Pane>
+
+      <Pane className="box box__fixed box__center">
+        <Pane>
+          <DonationBox />
+        </Pane>
+      </Pane>
+
+      {config.showAlert && (
+        <Pane className="box box__fixed box__alert">
+          {t('alert_message')}
+        </Pane>
+      )}
+
     </div>
   );
 };
