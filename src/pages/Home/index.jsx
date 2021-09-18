@@ -59,14 +59,14 @@ const Home = () => {
     <div className="container">
       {/* Banner */}
       <Pane className="box box__fixed box__center">
-        <a href="https://discord.gg/kBAvbyh3WE" target="_blank" rel="noreferrer" style={{ textAlign: 'center' }}>
-          <img src="/nft-games-land.png" alt="NFT Games Land" style={{ width: '40%' }} />
+        <a href="https://github.com/ptcmariano" target="_blank" rel="noreferrer" style={{ textAlign: 'center' }}>
+          <img src="/nft-games-land.png" alt="NFT Games Land" style={{ width: '20%' }} />
         </a>
         <Pane marginTop="8px" marginBottom="8px">
           {t('created_with')} <HeartIcon color="danger" /> {t('by')} NFT Games Land
         </Pane>
-        <Pane>
-          {t('join_our')} <a href="https://discord.gg/kBAvbyh3WE" target="_blank" rel="noreferrer" style={{ color: '#fff' }}>Discord</a>
+        <Pane marginTop="8px" marginBottom="8px">
+          {t('edited_with')} <HeartIcon color="danger" /> {t('by')} Paulo Tiago
         </Pane>
       </Pane>
 

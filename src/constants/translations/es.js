@@ -2,6 +2,7 @@ export default {
   donation_message: 'Si te sirve esta herramienta te agradecemos que consideres colaborar con los gastos del servidor donando a la siguiente dirección:',
   copy_address: 'Copiar dirección',
   created_with: 'Creado con',
+  edited_with: 'Editado con',
   by: 'por',
   join_our: 'Únete a nuestro',
   group_schedules: 'Horarios de los Grupos',

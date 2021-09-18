@@ -5,15 +5,13 @@ import {
 import MainLayout from '@layout/MainLayout';
 import Home from '@pages/Home';
 
-const MainRouter = () => {
-  return (
-    <MainLayout>
-      <Switch>
-        <Route path="/home" component={Home} />
-        <Redirect to="/home" />
-      </Switch>
-    </MainLayout>
-  )
-};
+const MainRouter = () => (
+  <MainLayout>
+    <Switch>
+      <Route path="/home" component={Home} />
+      <Redirect to="/home" />
+    </Switch>
+  </MainLayout>
+);
 
 export default MainRouter;
