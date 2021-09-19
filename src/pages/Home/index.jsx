@@ -10,6 +10,7 @@ import CountryPicker from '@components/CountryPicker';
 import FormatPicker from '@components/FormatPicker';
 import Timetable from '@components/Timetable';
 import DonationBox from '@components/DonationBox';
+import CalcTimeHour from '@components/CalcTimeHour';
 import { config } from '@config';
 import { countries } from '@constants';
 import './styles.css';
@@ -22,9 +23,9 @@ const formats = [
 const Home = () => {
   const { t, i18n } = useTranslation();
 
-  const [country, setCountry] = useState(countries[0]);
+  const [country, setCountry] = useState(countries[2]);
   const [format, setFormat] = useState(formats[1]);
-  const [currentTime, setCurrentTime] = useState(DateTime.now().setZone(countries[0].timezone));
+  const [currentTime, setCurrentTime] = useState(DateTime.now().setZone(countries[2].timezone));
 
   useEffect(() => {
     const savedCountry = localStorage.getItem('country');
@@ -93,7 +94,28 @@ const Home = () => {
         />
       </Pane>
 
-      {/* TODO: calc hours */}
+      {/* calc hours */}
+      <Pane marginBottom="8px" className="box box__fixed">
+        <CalcTimeHour
+          currentTime={currentTime}
+        />
+      </Pane>
+
+      {/* Links */}
+      <Pane marginBottom="8px" className="box box__fixed box__center">
+        <a href="https://www.coingecko.com/pt/moedas/plant-vs-undead-token" target="_blank" rel="noreferrer" style={{ textAlign: 'center' }}>
+          PVU Coingecko
+        </a>
+        <a href="https://coinmarketcap.com/pt-br/currencies/plantvsundead/" target="_blank" rel="noreferrer" style={{ textAlign: 'center' }}>
+          PVU Coinmarket
+        </a>
+        <Pane>
+          {t('created_with')} <HeartIcon color="danger" /> {t('by')} NFT Games Land
+        </Pane>
+        <Pane>
+          {t('edited_with')} <HeartIcon color="danger" /> {t('by')} Paulo Tiago
+        </Pane>
+      </Pane>
 
       {/* Banner */}
       <Pane className="box box__fixed box__center">
