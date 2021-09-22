@@ -1,5 +1,5 @@
 export default {
-  donation_message: 'Se essa ferramenta foi util pra você, vamos agradecer ao considerar colaborar com os gastos do servidor doando a seguinte carteira:',
+  donation_message: 'Se essa ferramenta foi util pra você, colabore com os gastos do servidor doando BNB a seguinte carteira:',
   copy_address: 'Copiar wallet',
   created_with: 'Criado com',
   edited_with: 'Editado com',

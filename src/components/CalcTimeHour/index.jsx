@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   CloudUploadIcon,
+  TimeIcon,
   ScatterPlotIcon,
   Card,
   TextInput,
 } from 'evergreen-ui';
+// import { DateTime } from 'luxon';
 
-const CalcTimeHour = ({ currentTime: currentTimeProp }) => {
-  // const all = [currentTime];
-  const harvest = '2021-09-09 12:12:12';
-  const plusTime = '72';
+const CalcTimeHour = ({
+  currentTime: currentTimeProp,
+  timezone,
+}) => {
+  const [harvest, setHarvest] = useState('2021-09-09');
+  const [plusTime, setPlusTime] = useState('72');
+  const handlerHarvest = () => {
+    const calcTime = currentTimeProp;
+    calcTime.plus({ hours: plusTime });
+    setHarvest(calcTime.setZone(timezone).format('Y-M-d'));
+  };
+
   return (
     <section>
       <Card
@@ -25,7 +35,7 @@ const CalcTimeHour = ({ currentTime: currentTimeProp }) => {
         flexDirection="column"
       >
         <header>Plantado <CloudUploadIcon /></header>
-        <TextInput type="datetime" width="100%" value={currentTimeProp.toString()} />
+        <TextInput disabled type="datetime" width="100%" value={currentTimeProp.toString()} />
       </Card>
       <Card
         elevation={1}
@@ -38,8 +48,8 @@ const CalcTimeHour = ({ currentTime: currentTimeProp }) => {
         alignItems="center"
         flexDirection="column"
       >
-        <header>Tempo <ScatterPlotIcon /></header>
-        <TextInput type="number" width="100%" value={plusTime} />
+        <header>Tempo <TimeIcon /></header>
+        <TextInput disabled type="number" width="100%" value={plusTime} onChange={setPlusTime} />
       </Card>
       <Card
         elevation={1}
@@ -53,7 +63,7 @@ const CalcTimeHour = ({ currentTime: currentTimeProp }) => {
         flexDirection="column"
       >
         <header>Colheita <ScatterPlotIcon /></header>
-        <TextInput type="datetime" width="100%" value={harvest} />
+        <TextInput disabled type="datetime" width="100%" value={harvest} onChange={handlerHarvest} />
       </Card>
     </section>
   );
@@ -61,6 +71,7 @@ const CalcTimeHour = ({ currentTime: currentTimeProp }) => {
 
 CalcTimeHour.prototype = {
   currentTime: PropTypes.object.isRequired,
+  timezone: PropTypes.string.isRequired,
 };
 
 export default CalcTimeHour;

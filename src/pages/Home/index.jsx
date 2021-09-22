@@ -98,23 +98,22 @@ const Home = () => {
       <Pane marginBottom="8px" className="box box__fixed">
         <CalcTimeHour
           currentTime={currentTime}
+          timezone={country.timezone}
         />
       </Pane>
 
       {/* Links */}
       <Pane marginBottom="8px" className="box box__fixed box__center">
+        <Pane>Links</Pane>
         <a href="https://www.coingecko.com/pt/moedas/plant-vs-undead-token" target="_blank" rel="noreferrer" style={{ textAlign: 'center' }}>
-          PVU Coingecko
+          https://www.coingecko.com/pt/moedas/plant-vs-undead-token
         </a>
         <a href="https://coinmarketcap.com/pt-br/currencies/plantvsundead/" target="_blank" rel="noreferrer" style={{ textAlign: 'center' }}>
-          PVU Coinmarket
+          https://coinmarketcap.com/pt-br/currencies/plantvsundead/
         </a>
-        <Pane>
-          {t('created_with')} <HeartIcon color="danger" /> {t('by')} NFT Games Land
-        </Pane>
-        <Pane>
-          {t('edited_with')} <HeartIcon color="danger" /> {t('by')} Paulo Tiago
-        </Pane>
+        <a href="https://pvuhub.info/" target="_blank" rel="noreferrer" style={{ textAlign: 'center' }}>
+          https://pvuhub.info/
+        </a>
       </Pane>
 
       {/* Banner */}
